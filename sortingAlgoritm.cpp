@@ -1,9 +1,22 @@
+
 #include <iostream>
 
 void printNewArray(int arr[], int length) {
     for (int i = 0; i < length; ++i) {
         std::cout << arr[i] << ",";
     }
+}
+
+void BubbleSort(int *input,int length) {
+    bool finish = false;
+
+    while (finish){
+        bool finish = false;
+
+
+        for(int i = 0; i < length)        
+    }
+    
 }
 
 void BubbleSort(int* arr,int length) {
@@ -161,7 +174,7 @@ void mergeSort(int array[], int left, int right) {
 int sortingAlgoritm() {
     /** Array  exercize*/
     std::cout << "Sorting algoritm start";
-    int arr[] = {5,4,3,2,1};
+    int arr[] = {2, 1, 3, 5, 4};
     int length = sizeof(arr) / sizeof(int);
 
     // BubbleSort(arr,length);

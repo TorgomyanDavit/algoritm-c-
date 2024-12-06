@@ -10,12 +10,12 @@ void printNewArray(int arr[], int length) {
 void BubbleSort(int *input,int length) {
     bool finish = false;
 
-    while (finish){
-        bool finish = false;
+    // while (finish){
+    //     bool finish = false;
 
 
-        for(int i = 0; i < length)        
-    }
+    //     for(int i = 0; i < length)        
+    // }
     
 }
 

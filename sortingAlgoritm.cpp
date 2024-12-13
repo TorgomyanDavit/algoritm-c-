@@ -7,40 +7,46 @@ void printNewArray(int arr[], int length) {
     }
 }
 
-void BubbleSort(int *input,int length) {
-    bool finish = false;
+void BubbleSort(int *arr,int length) {
+    bool finish = true;
 
-    // while (finish){
-    //     bool finish = false;
-
-
-    //     for(int i = 0; i < length)        
-    // }
-    
-}
-
-void BubbleSort(int* arr,int length) {
-    bool finish = false;
-
-    do {
+    while (finish){
         finish = false;
-
-        for(int i = 0; i < length; i++) {
-            int currElement = arr[i];
+        for(int i = 0; i < length;i++) {
+            int currentElement = arr[i];
             int nextElement = arr[i + 1];
-
-            if(currElement > nextElement) {
+            if(currentElement > nextElement) {
                 arr[i] = nextElement;
-                arr[i + 1] = currElement;
+                arr[i + 1] = currentElement;
                 finish = true;
             }
-        }
-
-    } while(finish);
-
-
+        }        
+    }
     printNewArray(arr,length);
 }
+
+// void BubbleSort(int* arr,int length) {
+//     bool finish = false;
+
+//     do {
+//         finish = false;
+
+//         for(int i = 0; i < length; i++) {
+//             int currElement = arr[i];
+//             int nextElement = arr[i + 1];
+
+//             if(currElement > nextElement) {
+//                 arr[i] = nextElement;
+//                 arr[i + 1] = currElement;
+//                 finish = true;
+//             }
+//         }
+
+//     } while(finish);
+
+
+//     printNewArray(arr,length);
+// }
 
 void SelectionSort(int* arr,int length) {
 
@@ -171,13 +177,13 @@ void mergeSort(int array[], int left, int right) {
     }
 }
 
-int sortingAlgoritm() {
+int main() {
     /** Array  exercize*/
     std::cout << "Sorting algoritm start";
     int arr[] = {2, 1, 3, 5, 4};
     int length = sizeof(arr) / sizeof(int);
 
-    // BubbleSort(arr,length);
+    BubbleSort(arr,length);
     // SelectionSort(arr,length);
     // InsertionSort(arr,length);
     // QuickSort(arr, 0, length - 1);

@@ -7,6 +7,13 @@ void printNewArray(int arr[], int length) {
     }
 }
 
+
+/** Bubble Sort repeatedly compares adjacent elements in an array and swaps them 
+ * if they are in the wrong order. This process continues in multiple passes until 
+ * no swaps are needed, meaning the array is sorted. During each pass, larger elements 
+ * "bubble up" to their correct positions, starting from the beginning of the array.
+*/
+
 void BubbleSort(int *arr,int length) {
     bool finish = true;
 
@@ -25,50 +32,25 @@ void BubbleSort(int *arr,int length) {
     printNewArray(arr,length);
 }
 
-// void BubbleSort(int* arr,int length) {
-//     bool finish = false;
-
-//     do {
-//         finish = false;
-
-//         for(int i = 0; i < length; i++) {
-//             int currElement = arr[i];
-//             int nextElement = arr[i + 1];
-
-//             if(currElement > nextElement) {
-//                 arr[i] = nextElement;
-//                 arr[i + 1] = currElement;
-//                 finish = true;
-//             }
-//         }
-
-//     } while(finish);
-
-
-//     printNewArray(arr,length);
-// }
-
 void SelectionSort(int* arr,int length) {
 
     for(int i = 0;i < length;i++) {
         int minIndex = i;
 
-        for(int i2 = 0;i2 < length;i2++) {
-            int currentElement = arr[i2];
-            int nextElement = arr[i2 + 1];
+        for (int j = i + 1; j < length; j++) {
+            int nextElement = arr[j];
+            int currentElement = arr[minIndex];
 
-            if(nextElement < currentElement) {
-                minIndex = i2 + 1;
+            if (nextElement < currentElement) {
+                minIndex = j;
             }
+        }
 
-        };
-
-        if(minIndex != i) {
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i]; 
-            arr[i] = temp;
-        };
-
+        if (minIndex != i) {
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
     }
 
     printNewArray(arr,length);
@@ -183,8 +165,8 @@ int main() {
     int arr[] = {2, 1, 3, 5, 4};
     int length = sizeof(arr) / sizeof(int);
 
-    BubbleSort(arr,length);
-    // SelectionSort(arr,length);
+    // BubbleSort(arr,length);
+    SelectionSort(arr,length);
     // InsertionSort(arr,length);
     // QuickSort(arr, 0, length - 1);
     // mergeSort(arr, 0, length - 1);
@@ -193,7 +175,15 @@ int main() {
 }
 
 
-// Bubble Sort + ancnum e hertakanutyamb ev amenamec element swapi ognuyamb brtuma araj; Time Complexity O(n^2)
+// Bubble Sort + 
+/** Բաբլ սորտը (Bubble Sort) բազմիցս համեմատում է զանգվածի հարակից էլեմենտները 
+ * և փոխում դրանց տեղերը, եթե դրանք սխալ հերթականությամբ են: 
+ * Այս գործընթացը շարունակվում է բազմաթիվ անցումների ընթացքում, մինչև 
+ * այլևս տեղաշարժեր չլինեն, ինչը նշանակում է, որ զանգվածը սորտավորված է: 
+ * Յուրաքանչյուր անցման ընթացքում ավելի մեծ էլեմենտները "բարձրանում են" 
+ * իրենց ճիշտ դիրքերը՝ սկսած զանգվածի սկզբից: O(n^2)
+*/
+
 // Selection Sort + gtnum e amenapoqr element@ ev qacuma araj, heto tenc sharunakabar minchev avartvi indexner@; Time Complexity O(n^2) 
 // quickSort +  bajanum e  Pivot, Left and right maseri ev anyndhat nuyn@ minchev verj, and finishily concat its all recurioon  O(n^2)
 // Insertion Sort: + stugum e hetevi ev dimacin@ ete meca het het gnalov noric krknuma ev mecer@ qay ar qayl het qaylerov dasavoruma hertakanutyamb O(n^2)

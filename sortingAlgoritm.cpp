@@ -7,13 +7,6 @@ void printNewArray(int arr[], int length) {
     }
 }
 
-
-/** Bubble Sort repeatedly compares adjacent elements in an array and swaps them 
- * if they are in the wrong order. This process continues in multiple passes until 
- * no swaps are needed, meaning the array is sorted. During each pass, larger elements 
- * "bubble up" to their correct positions, starting from the beginning of the array.
-*/
-
 void BubbleSort(int *arr,int length) {
     bool finish = true;
 
@@ -83,7 +76,7 @@ int partition(int arr[], int low, int high) {
             std::swap(arr[i], arr[j]);
         }
     }
-
+    
     std::swap(arr[i + 1], arr[high]);
     return i + 1;
 }
@@ -96,8 +89,13 @@ void QuickSort(int arr[], int low, int high) {
         QuickSort(arr, low, pivotIndex - 1);
         QuickSort(arr, pivotIndex + 1, high);
     }
-
 }
+
+int* QuickSortResponse(int arr[], int length) {
+    QuickSort(arr, 0, length - 1);
+    return arr; // Return the sorted array
+}
+
 
 // Function to merge two sorted subarrays into a single sorted array
 void merge(int array[], int left, int middle, int right) {
@@ -166,26 +164,46 @@ int main() {
     int length = sizeof(arr) / sizeof(int);
 
     // BubbleSort(arr,length);
-    SelectionSort(arr,length);
+    // SelectionSort(arr,length);
     // InsertionSort(arr,length);
-    // QuickSort(arr, 0, length - 1);
+
+    std::cout << length;
+    int* sortedArray = QuickSortResponse(arr,length);
+    printNewArray(arr,length);
+
     // mergeSort(arr, 0, length - 1);
 
     return 0; 
 }
 
 
-// Bubble Sort + 
-/** Բաբլ սորտը (Bubble Sort) բազմիցս համեմատում է զանգվածի հարակից էլեմենտները 
- * և փոխում դրանց տեղերը, եթե դրանք սխալ հերթականությամբ են: 
- * Այս գործընթացը շարունակվում է բազմաթիվ անցումների ընթացքում, մինչև 
- * այլևս տեղաշարժեր չլինեն, ինչը նշանակում է, որ զանգվածը սորտավորված է: 
- * Յուրաքանչյուր անցման ընթացքում ավելի մեծ էլեմենտները "բարձրանում են" 
- * իրենց ճիշտ դիրքերը՝ սկսած զանգվածի սկզբից: O(n^2)
+/** Bubble Sort repeatedly compares adjacent elements in an array and swaps them 
+ if they are in the wrong order. This process continues in multiple passes until 
+ no swaps are needed, meaning the array is sorted. During each pass, larger elements 
+ "bubble up" to their correct positions, starting from the beginning of the array.
 */
 
-// Selection Sort + gtnum e amenapoqr element@ ev qacuma araj, heto tenc sharunakabar minchev avartvi indexner@; Time Complexity O(n^2) 
+/**
+    Selection Sort is a simple sorting algorithm that repeatedly selects the smallest (or largest) element from the unsorted portion of the array and places it at the beginning of the sorted portion.
+    Time Complexity:
+    Best case: O(n²)
+    Worst case: O(n²)
+    Average case: O(n²)
+    Space Complexity: O(1)
+*/
+
+/**
+ * Insertion Sort
+    Insertion Sort is a simple sorting algorithm that builds the sorted array one element at a time. It iteratively takes an element from the unsorted portion and places it in the correct position within the sorted portion.
+    Time Complexity:
+    Best case (sorted array): O(n)
+    Worst case: O(n²)
+    Average case: O(n²)
+    Space Complexity: O(1)
+*/
+
 // quickSort +  bajanum e  Pivot, Left and right maseri ev anyndhat nuyn@ minchev verj, and finishily concat its all recurioon  O(n^2)
+// Selection Sort + gtnum e amenapoqr element@ ev qacuma araj, heto tenc sharunakabar minchev avartvi indexner@; Time Complexity O(n^2) 
 // Insertion Sort: + stugum e hetevi ev dimacin@ ete meca het het gnalov noric krknuma ev mecer@ qay ar qayl het qaylerov dasavoruma hertakanutyamb O(n^2)
 // Merge Sort: + merge sort@ ogtagorcvum e shat ,  O(n log n).   
 // Heap Sort: 

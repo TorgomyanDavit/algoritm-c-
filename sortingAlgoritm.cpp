@@ -65,35 +65,49 @@ void InsertionSort(int* arr,int length) {
     printNewArray(arr,length);
 }
 
-// Function to partition the array and return the pivot index
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
+void quickSort(int* arr, int size) {
+    if (size <= 1) {
+        return; // Base case: already sorted
+    }
 
-    for (int j = low; j < high; j++) {
-        if (arr[j] <= pivot) {
-            i++;
-            std::swap(arr[i], arr[j]);
+    int pivot = arr[0];
+    int less[size];
+    int equal[size]; 
+    int greater[size];
+    int lessCount = 0, equalCount = 0, greaterCount = 0;
+
+    // Partition the array
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < pivot) {
+            less[lessCount++] = arr[i];
+        } else if (arr[i] == pivot) {
+            equal[equalCount++] = arr[i];
+        } else {
+            greater[greaterCount++] = arr[i];
         }
     }
-    
-    std::swap(arr[i + 1], arr[high]);
-    return i + 1;
-}
 
-// Function to implement quicksort
-void QuickSort(int arr[], int low, int high) {
-    if (low < high) {
-        int pivotIndex = partition(arr, low, high);
+    // Recursively sort the less and greater arrays
+    quickSort(less, lessCount);
+    quickSort(greater, greaterCount);
 
-        QuickSort(arr, low, pivotIndex - 1);
-        QuickSort(arr, pivotIndex + 1, high);
+    // Combine results back into the original array
+    int index = 0;
+
+    // Add sorted less array
+    for (int i = 0; i < lessCount; i++) {
+        arr[index++] = less[i];
     }
-}
 
-int* QuickSortResponse(int arr[], int length) {
-    QuickSort(arr, 0, length - 1);
-    return arr; // Return the sorted array
+    // Add equal array
+    for (int i = 0; i < equalCount; i++) {
+        arr[index++] = equal[i];
+    }
+
+    // Add sorted greater array
+    for (int i = 0; i < greaterCount; i++) {
+        arr[index++] = greater[i];
+    }
 }
 
 
@@ -167,8 +181,7 @@ int main() {
     // SelectionSort(arr,length);
     // InsertionSort(arr,length);
 
-    std::cout << length;
-    int* sortedArray = QuickSortResponse(arr,length);
+    quickSort(arr,length);
     printNewArray(arr,length);
 
     // mergeSort(arr, 0, length - 1);

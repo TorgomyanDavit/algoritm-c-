@@ -122,6 +122,7 @@ void merge(int array[], int left, int middle, int right) {
     // Copy data to temporary arrays leftArray[] and rightArray[]
     for (int i = 0; i < leftSize; i++)
         leftArray[i] = array[left + i];
+
     for (int j = 0; j < rightSize; j++)
         rightArray[j] = array[middle + 1 + j];
 
@@ -181,10 +182,13 @@ int main() {
     // SelectionSort(arr,length);
     // InsertionSort(arr,length);
 
-    quickSort(arr,length);
+    // quickSort(arr,length);
+
+    int left = 0;
+    int right = length - 1;
+    mergeSort(arr, left, right);
     printNewArray(arr,length);
 
-    // mergeSort(arr, 0, length - 1);
 
     return 0; 
 }
